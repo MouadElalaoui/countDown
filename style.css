@@ -12,7 +12,7 @@
 
     width: 100vw;
     height: 100vh;
-    background-image: url(images/background.png);
+    background-image: url(https://wallup.net/wp-content/uploads/2018/09/26/670127-space-outer-universe-stars-photography-detail-astronomy-nasa-hubble.jpg);
     background-position: center;
     background-size: cover;
     padding: 0;
@@ -50,6 +50,12 @@
 
 }
 
+.currentTimeText{
+
+    color: #ff3753;
+
+}
+
 
 .content button {
 
@@ -62,6 +68,16 @@
     align-items: center;
     margin-top:30px ;
     cursor: pointer;
+    margin-right: 20px;
+    transition: 0.7s;
+    
+
+}
+.content button:hover {
+    transition: 0.7s;
+    border: 2px solid #ff3753;
+    color: #ff3753;
+    
 
 
 }
@@ -72,6 +88,9 @@
     margin-left: 10px;
 
 }
+
+
+
 
 .time{
 
@@ -142,4 +161,16 @@
 .background-cover{
 
     background-size: cover;
+}
+
+.btn{
+
+    display: flex;
+}
+
+#currentTimeDisplay{
+
+    font-size: 3.9em;
+    color:#ff3753;
+
 }
