@@ -10,9 +10,9 @@
     <div class="container">
         
         <div class="content">
-            <p>Made by Mouad ElAlaoui</p>
+            <p style="font-size: 18px;">Made by Mouad El Alaoui</p>
             <h1><span>CountDown</span> to concours...</h1>
-            <div class="time">
+            <div class="time" id="timeDiv" style="display: flex;">
                 <div>
                     <p id="Days">00</p>
                     <span>Days</span>
@@ -30,13 +30,18 @@
                     <span>Seconds</span>
                 </div>
             </div>
-            <button type="button" class="button">Change Background<img src="images/triangle.png" alt=""></button>
+            <div id="currentTimeDisplay" style="display: none;"></div>
+            <div class="btn">
+                <button type="button" class="button">Change Background<img src="images/triangle.png" alt=""></button>
+                <button type="button" class="button" id="showCurrentTime">Show current time<img src="images/triangle.png" alt=""></button>
+            </div>
         </div>
         <img src="images/rocket.png" alt="rocket" class="rocket">
         <img src="images/book.png" alt="book" class="book">
     </div>
 
     <script>
+
         var countDownDate = new Date("Apr 1, 2025 00:00:00").getTime();
         var x = setInterval(function(){
             var now = new Date().getTime(); 
@@ -72,8 +77,9 @@
                     "Mouad.png",
                     "saitama.png",
                     "bellingham.png",
-                    "maths.png",
+                    "Maths.png",
                     "drari1.png",
+                    "drari2.png",
                     "drari3.png",
                     "drari4.png",
                 ];
@@ -84,8 +90,46 @@
                 container.classList.add("background-cover");
             });
         });
+        /*========================================Show current time button====================================*/
+        document.addEventListener("DOMContentLoaded", function() {
+        var button2 = document.getElementById("showCurrentTime");
+        var countDownTimer = document.getElementById("timeDiv");
+        var currentTimeDisplay = document.getElementById("currentTimeDisplay");
 
-      
+        button2.addEventListener("click", function() {
+            if (countDownTimer.style.display === "flex") {
+                countDownTimer.style.display = "none";
+                currentTimeDisplay.style.display = "flex";
+                button2.textContent = "Show Count Down";
+            } else {
+                countDownTimer.style.display = "flex";
+                currentTimeDisplay.style.display = "none";
+                button2.textContent = "Show Current Time";
+            }
+        });
+
+        function updateTime() {
+            var currentTime = new Date();
+            var hours = currentTime.getHours();
+            var minutes = currentTime.getMinutes();
+            var seconds = currentTime.getSeconds();
+
+            hours = (hours < 10 ? "0" : "") + hours;
+            minutes = (minutes < 10 ? "0" : "") + minutes;
+            seconds = (seconds < 10 ? "0" : "") + seconds;
+
+            currentTimeDisplay.textContent = "Current Time : "+hours + " : " + minutes + " : " + seconds;
+            currentTimeDisplay.style.color = "#ff3753"
+        }
+
+
+        updateTime();
+        setInterval(updateTime, 1000);
+    });
+
+
+
+
 
 
 
